@@ -12,10 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField, Min(0f)] Vector2 arenaExtents = new Vector2(10f, 10f);
 
 
-    private void Awake()
-    {
-        _ball.StartNewGame();
-    }
+    private void Awake() => _ball.StartNewGame();
 
     private void Update()
     {
@@ -27,10 +24,10 @@ public class GameManager : MonoBehaviour
         _ball.UpdateVisualization();
     }
 
+
     void BounceYifNeeded()
     {
         float yExtents = arenaExtents.y - _ball.Extents;
-        
         if (_ball.Position.y < -yExtents)
         {
             _ball.BounceY(-yExtents);
@@ -44,7 +41,6 @@ public class GameManager : MonoBehaviour
     void BounceXifNeeded()
     {
         float xExtents = arenaExtents.x - _ball.Extents;
-
         if (_ball.Position.x < -xExtents)
         {
             _ball.BounceX(-xExtents);

@@ -265,7 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   extents: 4
   speed: 10
-  isAI: 0
+  isAI: 1
 --- !u!1001 &297836487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -417,7 +417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   extents: 4
   speed: 10
-  isAI: 1
+  isAI: 0
 --- !u!1 &734195388
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,7 +679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f89c9d5da61d03e4fa7612b8db530944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ball: {fileID: 1689835013}
+  _ball: {fileID: 1689835017}
   _topPaddle: {fileID: 697082531}
   _bottomPaddle: {fileID: 121156915}
   arenaExtents: {x: 10, y: 10}
@@ -1013,7 +1013,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 987557862136153751, guid: 572446411b1911a4cb849b96c3c7588f, type: 3}
   m_PrefabInstance: {fileID: 66500870}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1689835013 stripped
+--- !u!114 &1689835017 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 441046854300345064, guid: 92aa4fb612abcf8458d4fb78924a0e39, type: 3}
   m_PrefabInstance: {fileID: 2883016267402780666}
@@ -1132,14 +1132,6 @@ PrefabInstance:
     - target: {fileID: 3207945379983191030, guid: 92aa4fb612abcf8458d4fb78924a0e39, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5363486049441590154, guid: 92aa4fb612abcf8458d4fb78924a0e39, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5363486049441590154, guid: 92aa4fb612abcf8458d4fb78924a0e39, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
