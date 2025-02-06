@@ -31,6 +31,6 @@ public class Ball : MonoBehaviour
     public void BounceY(float boundary) 
     {
         position.y=2f*boundary-position.y;
-        _velocity.y=--_velocity.y;
+        _velocity.y=-_velocity.y;
     }
 }

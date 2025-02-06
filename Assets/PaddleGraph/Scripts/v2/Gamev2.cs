@@ -29,8 +29,8 @@ public class Gamev2 : MonoBehaviour
     void StartNewGame()
     {
         ball.StartNewGame();
-        paddleLeft.StartNewGame();
-        paddleRight.StartNewGame();
+        //paddleLeft.StartNewGame();
+       // paddleRight.StartNewGame();
     }
 
 
@@ -67,7 +67,7 @@ public class Gamev2 : MonoBehaviour
                 }
             }
 
-            countdownText.setText("{0}", countdownUntilNewGame);
+           // countdownText.setText("{0}", countdownUntilNewGame);
         }
         void BounceYIfNeeded()
         {
@@ -88,18 +88,18 @@ public class Gamev2 : MonoBehaviour
         }
         void BounceY(float boundary, Paddle defender)
         {
-            float durationAfterBounce = (ball.Position.y - boundary) / ball.Velocity.y;
-            float bounceX = ball.Position.x - ball.Velocity.x * durationAfterBounce;
+            //float durationAfterBounce = (ball.Position.y - boundary) / ball.Velocity.y;
+            //float bounceX = ball.Position.x - ball.Velocity.x * durationAfterBounce;
 
-            BounceXIfNeeded(bounceX);
-            bounceX = ball.Position.x - ball.Velocity.x * durationAfterBounce;
+            //BounceXIfNeeded(bounceX);
+            //bounceX = ball.Position.x - ball.Velocity.x * durationAfterBounce;
 
-            ball.BounceY(boundary);
+            //ball.BounceY(boundary);
 
-            if (defender.HitBall(bounceX, ball.Extents, out float hitFactor))
-            {
-                ball.SetXPositionAndSpeed(bounceX, hitFactor, durationAfterBounce);
-            }
+            //if (defender.HitBall(bounceX, ball.Extents, out float hitFactor))
+            //{
+            //    ball.SetXPositionAndSpeed(bounceX, hitFactor, durationAfterBounce);
+            //}
         }
 
         void BounceXIfNeeded(float x)
