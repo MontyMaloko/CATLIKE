@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] Ball _ball;
     [SerializeField] Paddle _topPaddle, _bottomPaddle;
+    [SerializeField] TextMeshPro _bluePlayerText;
+    [SerializeField] TMP_Text _redPlayerText;
+    int _score = 0;
 
     [SerializeField, Min(0f)] Vector2 arenaExtents = new Vector2(10f, 10f);
 
@@ -24,7 +27,11 @@ public class GameManager : MonoBehaviour
         _ball.UpdateVisualization();
     }
 
-    
+    void setScore(int newScore)
+    {
+        _score = newScore;
+        _bluePlayerText.SetText("{0}", newScore);
+    }
     void BounceYifNeeded()
     {
         float yExtents = arenaExtents.y - _ball.Extents;
