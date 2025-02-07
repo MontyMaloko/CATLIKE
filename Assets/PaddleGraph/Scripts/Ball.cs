@@ -5,9 +5,10 @@ using UnityEngine.UIElements;
 
 public class Ball : MonoBehaviour
 {
-    [SerializeField, Min(0f)] float _constantXSpeed = 8f, _constantYSpeed = 10f, extents = 0.5f; 
-    public float Extents =>extents; //?
-    public Vector2 Position => position;  //?
+    [SerializeField, Min(0f)] float _maxXSpeed=20f, _startXSpeed=8f, _constantYSpeed = 10f, extents = 0.5f; 
+    public float Extents =>extents; //Documentation of new way of declarations
+    public Vector2 Position => position;  //need to understadn getter and setters better
+    public Vector2 Velocity => _velocity;
     
     Vector2 position, _velocity;
 
@@ -19,18 +20,24 @@ public class Ball : MonoBehaviour
     {
         position = Vector2.zero;
         UpdateVisualization();
-        _velocity = new Vector2(_constantXSpeed, -_constantYSpeed);
+        _velocity = new Vector2(_startXSpeed, -_constantYSpeed);
+    }
+
+    public void setXPositionAndSpeed(float start, float speedFactor, float deltaTime)
+    {
+        _velocity.x = _maxXSpeed * speedFactor;
+        position.x = start + _velocity.x * deltaTime;
     }
 
     public void BounceX(float boundary)
     {
         position.x = 2f * boundary - position.x;
-        _velocity.x=-_velocity.x;
+        _velocity.x = -_velocity.x;
     }
 
     public void BounceY(float boundary) 
     {
-        position.y=2f*boundary-position.y;
-        _velocity.y=-_velocity.y;
+        position.y = 2f * boundary - position.y;
+        _velocity.y = -_velocity.y;
     }
 }

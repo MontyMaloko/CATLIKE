@@ -20,32 +20,48 @@ public class GameManager : MonoBehaviour
         _topPaddle.Move(_ball.Position.x,arenaExtents.x);
         _ball.Move();
         BounceYifNeeded();
-        BounceXifNeeded();
+        BounceXifNeeded(_ball.Position.x);
         _ball.UpdateVisualization();
     }
 
-
+    
     void BounceYifNeeded()
     {
         float yExtents = arenaExtents.y - _ball.Extents;
         if (_ball.Position.y < -yExtents)
         {
-            _ball.BounceY(-yExtents);
+            BounceY(-yExtents,_bottomPaddle);
         }
         else if (_ball.Position.y > yExtents)
         {
-            _ball.BounceY(yExtents);
+            BounceY(yExtents,_topPaddle);
+        }
+
+        
+    }
+    void BounceY(float boundary, Paddle defender)
+    {
+        float durationAfterBounce = (_ball.Position.y - boundary) / _ball.Velocity.y;
+        float bounceX = _ball.Position.x - _ball.Velocity.x * durationAfterBounce;
+       
+        BounceXifNeeded(bounceX);
+        bounceX=_ball.Position.x - _ball.Velocity.x*durationAfterBounce;
+        _ball.BounceY(boundary);
+
+        if (defender.HitBall(bounceX,_ball.Extents,out float hitFactor))
+        {
+            _ball.setXPositionAndSpeed(bounceX, hitFactor, durationAfterBounce);
         }
     }
 
-    void BounceXifNeeded()
+    void BounceXifNeeded(float x)
     {
         float xExtents = arenaExtents.x - _ball.Extents;
-        if (_ball.Position.x < -xExtents)
+        if (x < -xExtents)
         {
             _ball.BounceX(-xExtents);
         }
-        else if (_ball.Position.x > xExtents)
+        else if (x > xExtents)
         {
             _ball.BounceX(xExtents);
         }

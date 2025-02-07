@@ -240,9 +240,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5370443688554070221, guid: c29825e7f95267643aa30002f726c8e8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 121156915}
-    - targetCorrespondingSourceObject: {fileID: 5370443688554070221, guid: c29825e7f95267643aa30002f726c8e8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 121156919}
   m_SourcePrefab: {fileID: 100100000, guid: c29825e7f95267643aa30002f726c8e8, type: 3}
 --- !u!4 &121156913 stripped
 Transform:
@@ -269,22 +266,8 @@ MonoBehaviour:
   extents: 4
   speed: 10
   isAI: 0
---- !u!114 &121156919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121156914}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdb969a6159b42249a6545c7728b4bf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
-  extents: 4
-  speed: 10
-  isAI: 0
+  isP1: 0
+  isP2: 0
 --- !u!1001 &297836487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -411,9 +394,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6818735390354173843, guid: 187f979e599d00745886d821a9ef0e82, type: 3}
       insertIndex: -1
       addedObject: {fileID: 697082531}
-    - targetCorrespondingSourceObject: {fileID: 6818735390354173843, guid: 187f979e599d00745886d821a9ef0e82, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 697082532}
   m_SourcePrefab: {fileID: 100100000, guid: 187f979e599d00745886d821a9ef0e82, type: 3}
 --- !u!4 &697082526 stripped
 Transform:
@@ -440,22 +420,8 @@ MonoBehaviour:
   extents: 4
   speed: 10
   isAI: 0
---- !u!114 &697082532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 697082527}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdb969a6159b42249a6545c7728b4bf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
-  extents: 4
-  speed: 10
-  isAI: 0
+  isP1: 0
+  isP2: 0
 --- !u!1 &734195388
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,7 +650,6 @@ GameObject:
   m_Component:
   - component: {fileID: 954188412}
   - component: {fileID: 954188413}
-  - component: {fileID: 954188414}
   m_Layer: 0
   m_Name: ===GameManager===
   m_TagString: Untagged
@@ -723,24 +688,6 @@ MonoBehaviour:
   _topPaddle: {fileID: 697082531}
   _bottomPaddle: {fileID: 121156915}
   arenaExtents: {x: 10, y: 10}
---- !u!114 &954188414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 954188410}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93f3826dd1c09af4690ca4e346d36aeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ball: {fileID: 0}
-  paddleRight: {fileID: 0}
-  paddleLeft: {fileID: 0}
-  arenaExtents: {x: 10, y: 10}
-  countdownText: {fileID: 0}
-  newGameDelay: 3
 --- !u!1 &1039770679
 GameObject:
   m_ObjectHideFlags: 0
