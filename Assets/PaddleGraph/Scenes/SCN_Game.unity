@@ -419,8 +419,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 112.45
-  m_fontSizeBase: 112.45
+  m_fontSize: 72
+  m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -555,8 +555,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 112.45
-  m_fontSizeBase: 112.45
+  m_fontSize: 72
+  m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -959,6 +959,8 @@ MonoBehaviour:
   _ball: {fileID: 1689835017}
   _topPaddle: {fileID: 697082531}
   _bottomPaddle: {fileID: 121156915}
+  _bluePlayerText: {fileID: 0}
+  _redPlayerText: {fileID: 0}
   arenaExtents: {x: 10, y: 10}
 --- !u!1 &1039770679
 GameObject:
