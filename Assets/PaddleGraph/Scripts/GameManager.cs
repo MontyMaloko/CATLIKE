@@ -2,20 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
+
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] Ball _ball;
     [SerializeField] Paddle _topPaddle, _bottomPaddle;
-    [SerializeField] TextMeshPro _bluePlayerText;
-    [SerializeField] TMP_Text _redPlayerText;
-    int _score = 0;
+    [SerializeField, Min(2)] int _pointsToWin = 3;
+    
+    
 
     [SerializeField, Min(0f)] Vector2 arenaExtents = new Vector2(10f, 10f);
 
 
-    private void Awake() => _ball.StartNewGame();
+    private void Awake() => StartNewGame();
+
+    void StartNewGame()
+    {
+        _ball.StartNewGame();
+        _bottomPaddle.StartNewGame();
+        _topPaddle.StartNewGame();
+    }
 
     private void Update()
     {
@@ -27,26 +34,23 @@ public class GameManager : MonoBehaviour
         _ball.UpdateVisualization();
     }
 
-    void setScore(int newScore)
-    {
-        _score = newScore;
-        _bluePlayerText.SetText("{0}", newScore);
-    }
+    
     void BounceYifNeeded()
     {
         float yExtents = arenaExtents.y - _ball.Extents;
         if (_ball.Position.y < -yExtents)
         {
-            BounceY(-yExtents,_bottomPaddle);
+            BounceY(-yExtents, _bottomPaddle, _topPaddle);
         }
         else if (_ball.Position.y > yExtents)
         {
-            BounceY(yExtents,_topPaddle);
+            BounceY(yExtents, _topPaddle, _bottomPaddle);
         }
 
         
     }
-    void BounceY(float boundary, Paddle defender)
+
+    void BounceY(float boundary, Paddle defender, Paddle attacker)
     {
         float durationAfterBounce = (_ball.Position.y - boundary) / _ball.Velocity.y;
         float bounceX = _ball.Position.x - _ball.Velocity.x * durationAfterBounce;
@@ -58,6 +62,10 @@ public class GameManager : MonoBehaviour
         if (defender.HitBall(bounceX,_ball.Extents,out float hitFactor))
         {
             _ball.setXPositionAndSpeed(bounceX, hitFactor, durationAfterBounce);
+        }
+        else if (attacker.ScorePoint(_pointsToWin))
+        {
+            StartNewGame();
         }
     }
 

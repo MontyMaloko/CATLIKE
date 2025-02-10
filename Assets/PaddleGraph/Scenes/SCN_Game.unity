@@ -268,6 +268,8 @@ MonoBehaviour:
   isAI: 0
   isP1: 0
   isP2: 0
+  _bluePlayerText: {fileID: 676016571}
+  _redPlayerText: {fileID: 501005052}
 --- !u!1001 &297836487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -694,6 +696,8 @@ MonoBehaviour:
   isAI: 0
   isP1: 0
   isP2: 0
+  _bluePlayerText: {fileID: 676016571}
+  _redPlayerText: {fileID: 501005052}
 --- !u!1 &734195388
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,8 +963,7 @@ MonoBehaviour:
   _ball: {fileID: 1689835017}
   _topPaddle: {fileID: 697082531}
   _bottomPaddle: {fileID: 121156915}
-  _bluePlayerText: {fileID: 0}
-  _redPlayerText: {fileID: 0}
+  _pointsToWin: 3
   arenaExtents: {x: 10, y: 10}
 --- !u!1 &1039770679
 GameObject:
