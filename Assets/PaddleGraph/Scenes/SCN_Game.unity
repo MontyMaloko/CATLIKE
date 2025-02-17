@@ -265,6 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   extents: 4
   speed: 10
+  maxTargetingBias: 0.75
   isAI: 0
   isP1: 0
   isP2: 0
@@ -693,6 +694,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   extents: 4
   speed: 10
+  maxTargetingBias: 0.75
   isAI: 0
   isP1: 0
   isP2: 0
@@ -965,6 +967,8 @@ MonoBehaviour:
   _bottomPaddle: {fileID: 121156915}
   _pointsToWin: 3
   arenaExtents: {x: 10, y: 10}
+  countdownText: {fileID: 1136748286}
+  newGameDelay: 3
 --- !u!1 &1039770679
 GameObject:
   m_ObjectHideFlags: 0
@@ -1209,7 +1213,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: GET READY!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1242,7 +1246,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 2
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1633,8 +1637,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 501005051}
-  - {fileID: 676016570}
   - {fileID: 1136748285}
+  - {fileID: 676016570}
   m_Father: {fileID: 1466022722}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1657,9 +1661,9 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 0
+    m_Top: 81
+    m_Bottom: 71
+  m_ChildAlignment: 4
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1

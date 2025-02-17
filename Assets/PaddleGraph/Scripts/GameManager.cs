@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using TMPro;
 using UnityEngine;
 
@@ -10,12 +11,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] Paddle _topPaddle, _bottomPaddle;
     [SerializeField, Min(2)] int _pointsToWin = 3;
     
-    
-
     [SerializeField, Min(0f)] Vector2 arenaExtents = new Vector2(10f, 10f);
+    [SerializeField] TMP_Text countdownText;
+    [SerializeField, Min(1f)] float newGameDelay = 3f;
+    float countdownUntilNewGame;
 
-
-    private void Awake() => StartNewGame();
+    private void Awake() => countdownUntilNewGame = newGameDelay;
 
     void StartNewGame()
     {
@@ -28,10 +29,42 @@ public class GameManager : MonoBehaviour
     {
         _bottomPaddle.Move(_ball.Position.x,arenaExtents.x);
         _topPaddle.Move(_ball.Position.x,arenaExtents.x);
+
+        if (countdownUntilNewGame<=0f)
+        {
+            UpdateGame();
+        }
+        else
+        {
+            UpdateCountdown();
+        }
+    }
+
+    void UpdateGame()
+    {
         _ball.Move();
         BounceYifNeeded();
         BounceXifNeeded(_ball.Position.x);
         _ball.UpdateVisualization();
+    }
+
+    void UpdateCountdown()
+    {
+        countdownUntilNewGame -= Time.deltaTime;
+        if (countdownUntilNewGame<=0f)
+        {
+            countdownText.gameObject.SetActive(false);
+            StartNewGame();
+        }
+        else
+        {
+            float displayValue = Mathf.Ceil(countdownUntilNewGame);
+            if (displayValue<newGameDelay)
+            {
+                countdownText.SetText("{0}", displayValue);
+            }
+        }
+            countdownText.SetText("{0}", countdownUntilNewGame);
     }
 
     
@@ -65,8 +98,16 @@ public class GameManager : MonoBehaviour
         }
         else if (attacker.ScorePoint(_pointsToWin))
         {
-            StartNewGame();
+            EndGame();
         }
+    }
+
+    void EndGame()
+    {
+        countdownUntilNewGame = newGameDelay;
+        countdownText.SetText("GAME OVER");
+        countdownText.gameObject.SetActive(true);
+        _ball.EndGame();
     }
 
     void BounceXifNeeded(float x)
