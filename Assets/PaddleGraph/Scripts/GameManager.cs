@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField, Min(0f)] Vector2 arenaExtents = new Vector2(10f, 10f);
     [SerializeField] TMP_Text countdownText;
     [SerializeField, Min(1f)] float newGameDelay = 3f;
+    [SerializeField] LivelyCamera livelyCamera;
     float countdownUntilNewGame;
 
     private void Awake() => countdownUntilNewGame = newGameDelay;
@@ -89,17 +90,23 @@ public class GameManager : MonoBehaviour
         float bounceX = _ball.Position.x - _ball.Velocity.x * durationAfterBounce;
        
         BounceXifNeeded(bounceX);
-        bounceX=_ball.Position.x - _ball.Velocity.x*durationAfterBounce;
+        bounceX = _ball.Position.x - _ball.Velocity.x * durationAfterBounce;
+        livelyCamera.PushXZ(_ball.Velocity);
         _ball.BounceY(boundary);
 
         if (defender.HitBall(bounceX,_ball.Extents,out float hitFactor))
         {
             _ball.setXPositionAndSpeed(bounceX, hitFactor, durationAfterBounce);
         }
-        else if (attacker.ScorePoint(_pointsToWin))
+        else
         {
-            EndGame();
+            livelyCamera.JostleY();
+            if (attacker.ScorePoint(_pointsToWin))
+            {
+                EndGame();
+            }
         }
+       
     }
 
     void EndGame()
@@ -115,10 +122,12 @@ public class GameManager : MonoBehaviour
         float xExtents = arenaExtents.x - _ball.Extents;
         if (x < -xExtents)
         {
+            livelyCamera.PushXZ(_ball.Velocity);
             _ball.BounceX(-xExtents);
         }
         else if (x > xExtents)
         {
+            livelyCamera.PushXZ(_ball.Velocity);
             _ball.BounceX(xExtents);
         }
     }
