@@ -263,7 +263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 954444c4378300f44830193fb39be55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  extents: 4
+  minExtents: 4
+  maxExtents: 4
   speed: 10
   maxTargetingBias: 0.75
   isAI: 0
@@ -692,7 +693,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 954444c4378300f44830193fb39be55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  extents: 4
+  minExtents: 4
+  maxExtents: 4
   speed: 10
   maxTargetingBias: 0.75
   isAI: 0
@@ -969,6 +971,7 @@ MonoBehaviour:
   arenaExtents: {x: 10, y: 10}
   countdownText: {fileID: 1136748286}
   newGameDelay: 3
+  livelyCamera: {fileID: 1039770683}
 --- !u!1 &1039770679
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,6 +983,7 @@ GameObject:
   - component: {fileID: 1039770682}
   - component: {fileID: 1039770681}
   - component: {fileID: 1039770680}
+  - component: {fileID: 1039770683}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1061,6 +1065,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1039770683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039770679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b8159955cc37c49be5febbf6954471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jostleStrength: 40
+  pushStrength: 1
+  springStrength: 100
+  dampingStrength: 10
+  maxDeltaTime: 0.016666668
 --- !u!1 &1110523664
 GameObject:
   m_ObjectHideFlags: 0
